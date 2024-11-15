@@ -2,6 +2,6 @@
 - hosts: all
   tasks:
     - name: Run monitor semaphore task shell script
-      shell: ./monitor_semaphore_task.sh
+      shell: ./test.sh
       args:
         chdir: /tmp/semaphore/repository_1_1  # 指定脚本所在目录
