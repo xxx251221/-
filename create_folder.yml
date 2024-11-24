@@ -3,6 +3,6 @@
 - hosts: all
   tasks:
     - name: Create a folder with the current timestamp in /usr/local/soft
-      shell: create_folder.sh
+      shell: ./create_folder.sh
       args:
         chdir: /usr/local/soft  # 指定脚本所在目录
