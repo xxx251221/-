@@ -1,0 +1,7 @@
+# run_monitor_task.yml
+- hosts: all
+  tasks:
+    - name: Run monitor semaphore task shell script
+      shell: ./test.sh
+      args:
+        chdir: /tmp/semaphore/repository_1_1  # 指定脚本所在目录
