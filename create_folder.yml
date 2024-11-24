@@ -1,0 +1,22 @@
+---
+- name: Create a folder with the current timestamp in /usr/local/soft
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Upload the shell script to the target machine
+      copy:
+        content: |
+          #!/bin/bash
+          current_time=$(date +"%Y-%m-%d_%H-%M-%S")
+          folder_path="/usr/local/soft/$current_time"
+          mkdir -p "$folder_path"
+          if [ $? -eq 0 ]; then
+            echo "文件夹已成功创建：$folder_path"
+          else
+            echo "文件夹创建失败，请检查权限或路径。"
+          fi
+        dest: /usr/local/bin/create_folder.sh
+        mode: '0755'
+
+    - name: Run the shell script
+      command: /usr/local/bin/create_folder.sh
